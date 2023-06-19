@@ -1,0 +1,40 @@
+function [u,s1,s2]= SMC(teta,teta_dot,x,x_dot,)
+
+g=9.81; %Gravity(m/s^2)
+r=0.051; %Radius of wheel(m)
+Mw=0.03; %Mass of wheel(kg)
+Mp=1.13; %Mass of body(kg)
+Iw=0.000039; %Inertia of the wheel(kg*m^2)
+Ip=0.0041; %Inertia of the body(kg*m^2)
+L=0.07; %Length to the body's center of mass(m)
+%landa=10;k1=20;k=2;
+%Motor's variables
+Km=0.006123; %Motor torque constant(Nm/A)
+Ke=0.006087; %Back EMF constant(Vs/rad)
+R=3; %Nominal terminal resistance(Ohm)
+a1=Mp*L/(Ip+Mp*L^2);
+a2=Km*Ke/(R*r*(Ip+Mp*L^2));
+a3=Km/(R*(Ip+Mp*L^2));
+a4=Mp*g*L/(Ip+Mp*L^2);
+b1=2*Km/(R*r*(2*Mw+2*(Iw/r^2)+Mp));
+b2=2*Km*Ke/(R*r^2*(2*Mw+2*(Iw/r^2)+Mp));
+b3=Mp*L/(2*Mw+2*(Iw/r^2)+Mp);
+ n1=1;
+ n2=1;
+ n3=2;
+ n4=2;
+g1=-(a1*b1- 2*a3)/(a1*b3 - 1);
+f1=-(a4*teta + 2*a2*x  - a1*b2*x_dot)/(a1*b3 - 1);
+g2=-(b1- 2*a3*b3)/(a1*b3 - 1);
+f2=-(- b2*x_dot + a4*b3*teta + 2*a2*b3*x)/(a1*b3 - 1);
+s1=teta+ n1*teta_dot;
+s2=x+ n2*x_dot;
+anpha= n1*sign(s1)*f1+ n3*sign(s2)*f2+teta_dot*sign(s1)+ n3*x_dot*sign(s2);
+beta= n1*sign(s1)*g1+ n3*sign(s2)*g2;
+u=(- n4-anpha)/beta;
+
+
+
+
+%u2=1/g2*(yd_2d-landa*e2_d-f2-k1*s2-k*sign(s2));
+%u1=1/g1*(yd_2d-landa*e1_d-f1-k1*s1-k*sign(s1));

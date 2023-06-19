@@ -1,0 +1,13 @@
+
+
+
+
+x2_dot=((-0.75*g*sin(u(1))/L)/((0.75*((Mw*R+Mb*L*cos(u(1)))*cos(u(1)))/(2*Mw+Mb)*L)-1))+((0.75*Mb*L*sin(u(1))*cos(u(1))*(u(2)^2)/(2*Mw+Mb)*L)/((0.75*(Mw*R+Mb*L*cos(u(1)))*cos(u(1))/(2*Mw+Mb)*L)-1))+(((0.75*(Mw*R+Mb*L*cos(u(1)))*(1+(sin(u(1))^2)))+1/R)/(2*Mw+Mb-(0.75*(Mw*R+Mb*L*cos(u(1)))*cos(u(1))/L)))*u(5)
+
+
+x4_dot=((-0.75*g*(Mw*R+Mb*L*cos(u(1)))*sin(u(1)))/(2*Mw+Mb-(0.75*(Mw*R+Mb*L*cos(u(1)))*cos(u(1))/L)))+((Mb*L*sin(u(1))*(u(2)^2))/(2*Mw+Mb-(0.75*(Mw*R+Mb*L*cos(u(1)))*cos(u(1))/L)))+((0.75*(Mw*R+Mb*L*cos(u(1)))*(1+(sin(u(1))^2))+1/R)/(Mb*L^2)+(1/R)/(2*Mw+Mb-(0.75*(Mw*R+Mb*L*cos(u(1)))*cos(u(1))/L)))*u(5)
+
+
+
+f1+f2=((-0.75*g*sin(u(1))/L)/((0.75*((Mw*R+Mb*L*cos(u(1)))*cos(u(1)))/(2*Mw+Mb)*L)-1))+((0.75*Mb*L*sin(u(1))*cos(u(1))*(u(2)^2)/(2*Mw+Mb)*L)/((0.75*(Mw*R+Mb*L*cos(u(1)))*cos(u(1))/(2*Mw+Mb)*L)-1))
+1/g1=1/((0.75*(Mw*R+Mb*L*cos(u(1)))*(1+(sin(u(1))^2)))+1/R)/(2*Mw+Mb-(0.75*(Mw*R+Mb*L*cos(u(1)))*cos(u(1))/L));
